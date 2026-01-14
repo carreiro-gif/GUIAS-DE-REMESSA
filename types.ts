@@ -1,5 +1,4 @@
 
-
 export enum StatusServico {
   PENDENTE = 'Pendente',
   EM_ANDAMENTO = 'Em Andamento',
@@ -43,7 +42,7 @@ export interface ItemGuia {
   quantidade: number;
   valorUnitario: number;
   midia?: string;
-  operador?: string;
+  operadores?: string[];
   status: StatusServico;
 }
 
@@ -57,6 +56,8 @@ export interface Guia {
   observacoes: string;
   solicitante: string; // Nome da pessoa que pediu
   responsaveisExternos: string[]; // Lista de nomes selecionados
+  numeroProcesso?: string;
+  processoAtivo?: boolean;
 }
 
 export interface DraftGuideParams {
