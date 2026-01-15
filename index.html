@@ -4,20 +4,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>DIGRA - Guia de Remessa</title>
+
+    <!-- Tailwind (mantido por enquanto) -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonte -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <!-- Estilos globais -->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
       body {
         font-family: 'Inter', sans-serif;
         background-color: #f1f5f9;
       }
 
-      /* Screen Preview Styles for Pages */
       .print-page {
         width: 148mm;
-        min-height: 209mm; /* A5 Height */
+        min-height: 209mm;
         margin: 0 auto;
-        padding: 10mm; /* Match print margin */
+        padding: 10mm;
         background-color: white;
         box-sizing: border-box;
         display: flex;
@@ -31,7 +41,7 @@
           size: A5 portrait;
           margin: 10mm;
         }
-        
+
         body {
           background-color: white;
           -webkit-print-color-adjust: exact;
@@ -42,8 +52,7 @@
         .no-print {
           display: none !important;
         }
-        
-        /* Print Reset */
+
         .print-root {
           position: absolute;
           top: 0;
@@ -56,11 +65,10 @@
           box-shadow: none;
           page-break-after: always;
           break-after: page;
-          /* Ensure strict A5 sizing during print */
           width: 148mm;
-          height: 209mm; /* A5 Height - margins handled by @page mostly, but explicit height helps container */
+          height: 209mm;
           overflow: hidden;
-          padding: 0; /* Let @page handle margins or keep internal padding if @page is 0 */
+          padding: 0;
           border: none;
         }
 
@@ -69,18 +77,16 @@
           break-after: auto;
         }
 
-        /* Force Black and White Elements */
         * {
           border-color: #000 !important;
           color: #000 !important;
         }
-        
+
         img {
           filter: grayscale(100%) contrast(120%);
         }
       }
-      
-      /* Utilities for the specific layout */
+
       .print-border-bottom {
         border-bottom: 1px solid #000;
       }
@@ -91,21 +97,15 @@
         border: 1px solid #000;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+
+    <!-- CSS do Vite -->
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+
+    <!-- Entrada do React -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
