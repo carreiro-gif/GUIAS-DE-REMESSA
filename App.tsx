@@ -289,12 +289,13 @@ function App() {
             )}
 
             {activeTab === 'config' && (
-              <div className="animate-fade-in">
-                  currentNextSequence={nextSequence}
-                  onSave={setNextSequence}
-                />
-              </div>
-            )}
+  <div className="animate-fade-in">
+    <ConfigManager
+      currentNextSequence={nextSequence}
+      onSave={setNextSequence}
+    />
+  </div>
+)}
 
             {activeTab === 'list' && (
               <div className="animate-fade-in">
