@@ -6,7 +6,6 @@ import { OrgaoManager } from './components/OrgaoManager';
 import { OperadorManager } from './components/OperadorManager';
 import { ResponsavelManager } from './components/ResponsavelManager';
 import { ServicoManager } from './components/ServicoManager';
-import { ConfigManager } from './components/ConfigManager';
 import { ORGAOS as INITIAL_ORGAOS, INITIAL_OPERADORES, INITIAL_RESPONSAVEIS, INITIAL_SERVICOS } from './data/mockData';
 
 // Icons using SVG to avoid external deps
@@ -291,7 +290,6 @@ function App() {
 
             {activeTab === 'config' && (
               <div className="animate-fade-in">
-                <ConfigManager 
                   currentNextSequence={nextSequence}
                   onSave={setNextSequence}
                 />
