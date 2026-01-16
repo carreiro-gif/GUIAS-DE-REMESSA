@@ -158,11 +158,7 @@ function App() {
   );
 
   return (
-    <div className="flex h-screen bg-slate-100 font-sans text-slate-800 overflow-hidden">
-      <div style={{ background: 'red', color: 'white', padding: 10 }}>
-  VERSÃO NOVA — DEPLOY TESTE
-</div>
-      
+       
       {/* Sidebar - No Print */}
       <aside className="w-64 bg-slate-900 text-white flex-col hidden md:flex no-print flex-shrink-0">
         <div className="p-6 border-b border-slate-700 flex flex-col items-center text-center">
