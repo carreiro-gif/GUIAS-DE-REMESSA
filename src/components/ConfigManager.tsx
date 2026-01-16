@@ -1,78 +1,40 @@
 import React, { useState } from "react";
 
-export type AppConfig = {
-  showPrices: boolean;
-  enableReplication: boolean;
-  allowEditing: boolean;
-};
-
-const defaultConfig: AppConfig = {
-  showPrices: true,
-  enableReplication: true,
-  allowEditing: true,
-};
-
 interface ConfigManagerProps {
-  config?: AppConfig;
-  onChange?: (config: AppConfig) => void;
+  currentNextSequence: number;
+  onSave: (value: number) => void;
 }
 
 export const ConfigManager: React.FC<ConfigManagerProps> = ({
-  config = defaultConfig,
-  onChange,
+  currentNextSequence,
+  onSave,
 }) => {
-  const [localConfig, setLocalConfig] = useState<AppConfig>(config);
-
-  const updateConfig = (key: keyof AppConfig) => {
-    const updatedConfig = {
-      ...localConfig,
-      [key]: !localConfig[key],
-    };
-
-    setLocalConfig(updatedConfig);
-
-    if (onChange) {
-      onChange(updatedConfig);
-    }
-  };
+  const [value, setValue] = useState<number>(currentNextSequence);
 
   return (
-    <div
-      style={{
-        border: "1px solid #ddd",
-        borderRadius: 8,
-        padding: 16,
-        marginBottom: 16,
-      }}
-    >
-      <h3 style={{ marginBottom: 12 }}>Configurações do Sistema</h3>
+    <div className="bg-white rounded-lg shadow p-6 max-w-md">
+      <h3 className="text-lg font-bold mb-4 text-slate-800">
+        Configuração de Numeração
+      </h3>
 
-      <label style={{ display: "block", marginBottom: 8 }}>
-        <input
-          type="checkbox"
-          checked={localConfig.showPrices}
-          onChange={() => updateConfig("showPrices")}
-        />{" "}
-        Exibir preços
+      <label className="block text-sm font-medium text-slate-600 mb-2">
+        Próxima sequência mínima
       </label>
 
-      <label style={{ display: "block", marginBottom: 8 }}>
-        <input
-          type="checkbox"
-          checked={localConfig.enableReplication}
-          onChange={() => updateConfig("enableReplication")}
-        />{" "}
-        Permitir replicação
-      </label>
+      <input
+        type="number"
+        min={1}
+        className="w-full border border-slate-300 rounded px-3 py-2 mb-4 focus:ring-2 focus:ring-blue-500 outline-none"
+        value={value}
+        onChange={(e) => setValue(Number(e.target.value))}
+      />
 
-      <label style={{ display: "block", marginBottom: 8 }}>
-        <input
-          type="checkbox"
-          checked={localConfig.allowEditing}
-          onChange={() => updateConfig("allowEditing")}
-        />{" "}
-        Permitir edição
-      </label>
+      <button
+        onClick={() => onSave(value)}
+        className="bg-blue-600 text-white px-4 py-2 rounded font-semibold hover:bg-blue-700 transition"
+      >
+        Salvar Numeração
+      </button>
     </div>
   );
 };
