@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from 'react';
+
 import { Guia, Orgao, Operador, ResponsavelExterno, ServicoPreco } from './types';
+
 import { GuiaForm } from './components/GuiaForm';
 import { GuiaPrint } from './components/GuiaPrint';
 import { OrgaoManager } from './components/OrgaoManager';
 import { OperadorManager } from './components/OperadorManager';
 import { ResponsavelManager } from './components/ResponsavelManager';
 import { ServicoManager } from './components/ServicoManager';
-import { ORGAOS as INITIAL_ORGAOS, INITIAL_OPERADORES, INITIAL_RESPONSAVEIS, INITIAL_SERVICOS } from './data/mockData';
+import { ConfigManager } from './components/ConfigManager';
+
+import {
+  ORGAOS as INITIAL_ORGAOS,
+  INITIAL_OPERADORES,
+  INITIAL_RESPONSAVEIS,
+  INITIAL_SERVICOS
+} from './data/mockData';
 
 // Icons using SVG to avoid external deps
 const IconPlus = () => <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>;
